@@ -285,6 +285,11 @@ class Scope
             return null;
         }
 
+        // if data is object, turn back into object after merge
+        if (is_object($data)) {
+            return (object) array_merge((array) $data, $meta);
+        }
+
         return array_merge($data, $meta);
     }
 
